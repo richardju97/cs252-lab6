@@ -33,6 +33,7 @@ dask==0.13.0
 datashape==0.5.4
 decorator==4.0.11
 dill==0.2.5
+dj-database-url==0.4.1
 Django==1.11.3
 docutils==0.13.1
 et-xmlfile==1.0.1
@@ -41,6 +42,7 @@ Flask==0.12
 Flask-Cors==3.0.2
 gevent==1.2.1
 greenlet==0.4.11
+gunicorn==19.6.0
 h5py==2.6.0
 HeapDict==1.0.0
 idna==2.2
@@ -91,6 +93,7 @@ Pillow==4.0.0
 ply==3.9
 prompt-toolkit==1.0.9
 psutil==5.0.1
+psycopg2==2.6.2
 ptyprocess==0.5.1
 py==1.4.32
 pyasn1==0.1.9
@@ -137,6 +140,7 @@ tzlocal==1.4
 unicodecsv==0.14.1
 wcwidth==0.1.7
 Werkzeug==0.11.15
+whitenoise==3.2
 widgetsnbextension==1.2.6
 wrapt==1.10.8
 xlrd==1.0.0
