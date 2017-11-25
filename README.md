@@ -1,9 +1,9 @@
 # CS252 Group Project (Lab 6 - HTML5 Web Application)
 
 ## Team Members
-David Lee  
-Essen He  
-Richard Ju  
+David Lee  (lee2173@purdue.edu)
+Essen He  (he284@purdue.edu)
+Richard Ju  (rju@purdue.edu)
 
 ## Project Description
 
@@ -25,7 +25,7 @@ Installing dependencies (if necessary)
 ```bash
 (myvenv) $ pip install -r requirements.txt
 ```
-If you have any issues loading dependencies you can also install them manually with pip install <dependency>  
+If you have any issues loading dependencies you can also install them manually with pip install <dependency>
 
 
 Closing the virtual environment
