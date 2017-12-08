@@ -1,32 +1,19 @@
 {
-  "name": "CS252 Lab 6",
-  "version": "0.0.1",
-  "description": "HTML5 Web Application Lab for CS252 at Purdue University",
-  "engines": {
-    "node": "6.3.0"
-  },
+  "name": "lab6-node",
+  "version": "1.0.0",
+  "description": "CS252 Lab 6 (Web Application)",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
   "dependencies": {
+    "angular-route": "^1.6.5",
+    "angular": "^1.6.5",
     "body-parser": "^1.18.2",
     "mongodb": "^3.0.0-rc0"
   },
   "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/richardju97/purdue-vsa-website.git"
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/richardju97/purdue-vsa-website/issues"
-  },
-  "homepage": "https://github.com/richardju97/purdue-vsa-website#readme"
+  "license": "ISC"
 }
