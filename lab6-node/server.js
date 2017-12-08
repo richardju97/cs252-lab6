@@ -30,6 +30,12 @@ app.post('/loginUser', function(req, res) {
          console.log("%j", req.body);
 });
 
+app.post('/createUser', function(req, res) {
+         
+         console.log("Got a post request for create");
+         console.log("%j", req.body);
+});
+
 app.use("*", function(req, res){
         res.sendFile(path + "404.html");
 });
