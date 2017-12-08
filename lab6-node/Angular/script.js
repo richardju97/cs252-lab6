@@ -11,14 +11,22 @@ app.controller('homeController', function($scope, $http) {
     $scope.name = "homeController";
     $scope.login = function() {
         console.log("login button clicked.");
-               var p = CryptoJS.AES.encrypt($scope.password, "lololol");
-               console.log($scope.username);
-               console.log(p);
+        var p = CryptoJS.AES.encrypt($scope.password, "lololol");
+        console.log($scope.username);
+        console.log(p);
 //               console.log(p.toString(CryptoJS.enc.Utf8));
 //               console.log("decrypted");
 //               var d = CryptoJS.AES.decrypt(p, "lololol");
 //               console.log(d.toString(CryptoJS.enc.Utf8));
-               
+        $http({
+              url: '/loginUser',
+              method: 'POST',
+              headers: {'Content-Type': 'application/json'},
+              data: JSON.stringify({
+                                   "user":$scope.username,
+                                   "pass":p.toString(CryptoJS.enc.Utf8)
+              })
+        });
     };
 });
 
