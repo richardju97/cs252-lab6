@@ -1,0 +1,29 @@
+{
+  "name": "purdue-vsa-website",
+  "version": "0.0.1",
+  "description": "Purdue VSA's Website",
+  "engines": {
+    "node": "6.3.0"
+  },
+  "main": "Server.js",
+  "scripts": {
+    "start": "node Server.js"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardju97/purdue-vsa-website.git"
+  },
+  "author": "",
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardju97/purdue-vsa-website/issues"
+  },
+  "homepage": "https://github.com/richardju97/purdue-vsa-website#readme"
+}
