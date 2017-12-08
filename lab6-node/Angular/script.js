@@ -57,7 +57,7 @@ app.controller('createController', function($scope, $http) {
                      data: JSON.stringify({
                                           "user":$scope.username,
                                           "pass":p.toString(CryptoJS.enc.Utf8)
-                                          })
+                                          });
                      });
                }else {
                     console.log("passwords do not match");
