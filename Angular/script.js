@@ -4,6 +4,8 @@
 // Load Dependencies
 var app = angular.module('mainApp', ['ngRoute']);
 
+var loggedin = false;
+
 app.controller('mainController', function($scope) {} );
 
 app.controller('homeController', function($scope, $http) {
