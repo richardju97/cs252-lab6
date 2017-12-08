@@ -1,15 +1,17 @@
 {
-  "name": "purdue-vsa-website",
+  "name": "CS252 Lab 6",
   "version": "0.0.1",
-  "description": "Purdue VSA's Website",
+  "description": "HTML5 Web Application Lab for CS252 at Purdue University",
   "engines": {
     "node": "6.3.0"
   },
-  "main": "Server.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node Server.js"
+    "start": "node server.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "mongodb": "^3.0.0-rc0"
+  },
   "devDependencies": {},
   "repository": {
     "type": "git",
