@@ -20,6 +20,10 @@ app.controller('guessController', function($scope, $http) {
                
                $scope.name = "guessController";
                });
+app.controller('error404Controller', function($scope, $http) {
+               
+               $scope.name = "error404Controller";
+               });
 
 
 app.config(function($routeProvider, $locationProvider) {
@@ -35,13 +39,13 @@ app.config(function($routeProvider, $locationProvider) {
            .when('/draw', {
                  
                  templateUrl: 'template/draw.html',
-                 controller: 'aboutController'
+                 controller: 'drawController'
                  })
            
            .when('/guess', {
                  
                  templateUrl: 'template/guess.html',
-                 controller: 'contactController'
+                 controller: 'guessController'
                  })
            
            .when('/error404', {
