@@ -28,19 +28,19 @@ app.config(function($routeProvider, $locationProvider) {
            
            .when('/', {
                  
-                 templateUrl: 'template/home.html',
+                 templateUrl: 'template/login.html',
                  controller: 'homeController'
                  })
            
            .when('/draw', {
                  
-                 templateUrl: 'template/faq.html',
+                 templateUrl: 'template/draw.html',
                  controller: 'aboutController'
                  })
            
            .when('/guess', {
                  
-                 templateUrl: 'template/contact.html',
+                 templateUrl: 'template/guess.html',
                  controller: 'contactController'
                  })
            
