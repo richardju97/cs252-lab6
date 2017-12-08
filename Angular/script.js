@@ -49,7 +49,7 @@ app.controller('createController', function($scope, $http) {
                
                if ($scope.pass1 == $scope.pass2) {
                     console.log("passwords match");
-                    var p = CryptoJS.AES.encrypt($scope.password, "lololol");
+                    var p = CryptoJS.AES.encrypt($scope.pass1, "lololol");
                     $http({
                      url: '/createUser',
                      method: 'POST',
@@ -59,13 +59,14 @@ app.controller('createController', function($scope, $http) {
                                           "pass":p.toString(CryptoJS.enc.Utf8)
                                           })
                      });
-                    };
                }else {
                     console.log("passwords do not match");
                }
                
 //               console.log($scope.username);
 //               console.log(p);
+                                   };
+
 });
 
 app.controller('error404Controller', function($scope, $http) {
