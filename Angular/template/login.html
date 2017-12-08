@@ -1,15 +1,15 @@
 
-<form class='container'>
+<form class='container' role="form">
     <div class="form-group">
         <label for="exampleFormControlInput1">Username</label>
-        <input type="text" class="form-control">
-            </div>
+        <input type="text" class="form-control" ng-model="username">
+    </div>
     <div class="form-group">
         <label for="exampleFormControlInput2">Password</label>
-        <input type="password" class="form-control">
-            </div>
+        <input type="password" class="form-control" ng-model="password">
+    </div>
     
-    <input type='submit' value='Login' class='btn btn-success' ng-click='login();'>
+    <input type='submit' ng-model="loginButton" value='Login' class='btn btn-success' ng-click='login()'>
         or <a href="/create">Click Here</a> to create a new account instead
 </form>
 
