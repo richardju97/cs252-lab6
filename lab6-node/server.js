@@ -7,7 +7,8 @@ var http = require('http');
 var MongoClient = require('mongodb').MongoClient, assert=require('assert');
 var bodyParser = require('body-parser')
 
-
+var url=process.env.MONGODB_URI;
+//         var url='mongodb://localhost:27017/lab6-node';
 
 router.use(function(req, res, next) {
            console.log("/" + req.method);
@@ -46,8 +47,11 @@ var authUser = function(db, u, p, callback) {
     var uc = db.collection('users');
     uc.find({user : u, password : p}).toArray(function(err, docs) {
                         assert.equal(err, null);
-                        console.log("Found user");
-                        console.log(docs);
+                        if (docs.length == 0) {
+                                console.log("User not found");
+                        } else {
+                                console.log("Found user");
+                        }
                         callback(docs);
                         });
 }
@@ -65,7 +69,7 @@ app.post('/loginUser', function(req, res) {
          var u = JSON.stringify(req.body['user']);
          var p = JSON.stringify(req.body['pass']);
          
-         var url='mongodb://localhost:27017/lab6-node';
+//         var url=process.env.MONGODB_URI;
          MongoClient.connect(url, function(err, client) {
                              //                    assert.equal(null, err);
                              if (err) throw err;
@@ -103,7 +107,7 @@ app.post('/createUser', function(req, res) {
             console.log("User: " + u);
             console.log("Pass: " + p);
 
-         var url='mongodb://localhost:27017/lab6-node';
+//         var url='mongodb://localhost:27017/lab6-node';
          MongoClient.connect(url, function(err, client) {
                              //                    assert.equal(null, err);
                              if (err) throw err;
