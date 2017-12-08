@@ -17,14 +17,14 @@ router.use(function(req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 
-var insertUser = function(db, u, p, callback) {
+var insertUser = function(db, usr, p, callback) {
     
     var uc = db.collection('users');
-    uc.insert({a: 10},
+    uc.insert({user : usr, password : p},
                           function(err, result) {
                           assert.equal(err, null);
-                          assert.equal(3, result.result.n);
-                          assert.equal(3, result.ops.length);
+                          assert.equal(1, result.result.n);
+                          assert.equal(1, result.ops.length);
                           console.log("Inserted user into users db");
                           callback(result);
                           });
