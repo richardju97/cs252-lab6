@@ -41,6 +41,16 @@ var findUsers = function(db, callback) {
                         });
 }
 
+var authUser = function(db, u, p, callback) {
+    
+    var uc = db.collection('users');
+    uc.find({user : u, password : p}).toArray(function(err, docs) {
+                        assert.equal(err, null);
+                        console.log("Found user");
+                        console.log(docs);
+                        callback(docs);
+                        });
+}
 
 app.use('/', express.static(path.join(__dirname, '/Angular/')));
 
@@ -51,7 +61,23 @@ app.use('/guess', express.static(path.join(__dirname, '/Angular/')));
 app.post('/loginUser', function(req, res) {
          
          console.log("Got a post request for login");
-         console.log("%j", req.body);
+//         console.log("%j", req.body);
+         var u = JSON.stringify(req.body['user']);
+         var p = JSON.stringify(req.body['pass']);
+         
+         var url='mongodb://localhost:27017/lab6-node';
+         MongoClient.connect(url, function(err, client) {
+                             //                    assert.equal(null, err);
+                             if (err) throw err;
+                             var db = client.db('mytestingdb');
+                             console.log("Connected correctly to db server");
+                             
+//                             insertUser(db, u, p, function() {
+                                        authUser(db, u, p, function() {
+                                                  client.close();
+                                                  });
+                                        });
+//                             });
 });
 
 app.post('/createUser', function(req, res) {
