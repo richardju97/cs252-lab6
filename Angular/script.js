@@ -43,7 +43,31 @@ app.controller('guessController', function($scope, $http) {
 app.controller('createController', function($scope, $http) {
                
                $scope.name = "createController";
-               });
+               
+               $scope.createUser = function() {
+               console.log("create account clicked.");
+               
+               if ($scope.pass1 == $scope.pass2) {
+                    console.log("passwords match");
+                    var p = CryptoJS.AES.encrypt($scope.password, "lololol");
+                    $http({
+                     url: '/createUser',
+                     method: 'POST',
+                     headers: {'Content-Type': 'application/json'},
+                     data: JSON.stringify({
+                                          "user":$scope.username,
+                                          "pass":p.toString(CryptoJS.enc.Utf8)
+                                          })
+                     });
+                    };
+               }else {
+                    console.log("passwords do not match");
+               }
+               
+//               console.log($scope.username);
+//               console.log(p);
+});
+
 app.controller('error404Controller', function($scope, $http) {
                
                $scope.name = "error404Controller";
