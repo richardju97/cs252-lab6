@@ -8,11 +8,16 @@ var MongoClient = require('mongodb').MongoClient, assert=require('assert');
 var bodyParser = require('body-parser')
 
 var url='mongodb://localhost:27017/lab6-node';
-MongoClient.connect(url, function(err, db) {
-                    assert.equal(null, err);
+MongoClient.connect(url, function(err, client) {
+//                    assert.equal(null, err);
+                    if (err) throw err;
+                    var db = client.db('mytestingdb');
                     console.log("Connected correctly to db server");
-                    db.close();
+                    
+                    insertUser(db, function() {
+                               client.close();
                     });
+});
 
 router.use(function(req, res, next) {
            console.log("/" + req.method);
@@ -21,6 +26,20 @@ router.use(function(req, res, next) {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
+
+var insertUser = function(db, callback) {
+    
+    var uc = db.collection('users');
+    uc.insertMany([{a: 1}, {a: 2}, {a: 3}],
+                          function(err, result) {
+                          assert.equal(err, null);
+                          assert.equal(3, result.result.n);
+                          assert.equal(3, result.ops.length);
+                          console.log("Inserted user into users db");
+                          callback(result);
+                          });
+}
+
 
 app.use('/', express.static(path.join(__dirname, '/Angular/')));
 
@@ -48,21 +67,25 @@ app.post('/createUser', function(req, res) {
 //                           });
 //                });
 //
+         
+         var u = JSON.stringify(req.body['user']);
+         var p = JSON.stringify(req.body['pass']);
          console.log("Body: " + JSON.stringify(req.body));
+//         console.log("User: " + JSON.stringify(req.body['user']));
+//         console.log("Pass: " + JSON.stringify(req.body['pass']));
+            console.log("User: " + u);
+            console.log("Pass: " + p);
+
          
          
-//         var insertUser = function(db, callback) {
-//
-//            var collection = db.collection('users');
-//         collection.insertMany([{}],
-//                                  function(err, result) {
-//                                  assert.equal(err, null);
-//                                  assert.equal(1, result.result.n);
-//                                  assert.equal(1, result.ops.length);
-//                                  console.log("Inserted user into users db");
-//                                  callback(result);
-//                                  });
-//         }
+//         var url='mongodb://localhost:27017/lab6-node';
+//         MongoClient.connect(url, function(err, db) {
+//                             assert.equal(null, err);
+//                             console.log("Connected correctly to db server");
+//                             insertUser(db, function() {
+//                                        db.close();
+//                                        });
+//                             });
 });
 
 app.use("*", function(req, res){
