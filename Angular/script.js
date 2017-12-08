@@ -9,6 +9,10 @@ app.controller('mainController', function($scope) {} );
 app.controller('homeController', function($scope, $http) {
                
                $scope.name = "homeController";
+               function login() {
+               console.log("login button clicked.");
+               
+               };
                });
 
 app.controller('drawController', function($scope, $http) {
@@ -19,6 +23,11 @@ app.controller('drawController', function($scope, $http) {
 app.controller('guessController', function($scope, $http) {
                
                $scope.name = "guessController";
+               });
+
+app.controller('createController', function($scope, $http) {
+               
+               $scope.name = "createController";
                });
 app.controller('error404Controller', function($scope, $http) {
                
@@ -46,6 +55,11 @@ app.config(function($routeProvider, $locationProvider) {
                  
                  templateUrl: 'template/guess.html',
                  controller: 'guessController'
+                 })
+           .when('/create', {
+                 
+                 templateUrl: 'template/create.html',
+                 controller: 'createController'
                  })
            
            .when('/error404', {
